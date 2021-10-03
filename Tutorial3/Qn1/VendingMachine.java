@@ -49,18 +49,22 @@ public class VendingMachine {
                 case 'q':
                 case 'Q':
                     amount += 0.10;
+                    System.out.printf("Current amount is $%.2f", amount);
                     break;
                 case 't':
                 case 'T':
                     amount += 0.20;
+                    System.out.printf("Current amount is $%.2f", amount);
                     break;
                 case 'f':
                 case 'F':
                     amount +=  0.50;
+                    System.out.printf("Current amount is $%.2f", amount);
                     break;
                 case 'n':
                 case 'N':
                     amount += 1.00;
+                    System.out.printf("Current amount is $%.2f", amount);
                     break;
             }
             System.out.printf("Coins inserted: %.2f \n", amount);
