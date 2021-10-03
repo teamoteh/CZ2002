@@ -8,7 +8,7 @@ import java.util.Comparator;
 public class Plane{
     private PlaneSeat seat[] = new PlaneSeat[12];
     private int numEmptySeat = 12;
-
+    //this is something
     public Plane(){
 
     }
