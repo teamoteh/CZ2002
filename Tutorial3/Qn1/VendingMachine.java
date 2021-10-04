@@ -3,34 +3,32 @@ package Tutorial3.Qn1;
 import java.util.Scanner;
 
 public class VendingMachine {
-    public VendingMachine(){
+    Drinks[] drinks;
+    double drinkCost = 0.0;
+    int drinkSelection = 0;
 
+    public VendingMachine(){
+        drinks = new Drinks[3];
+        drinks[0] = new Drinks("Beer", 3.00);
+        drinks[1] = new Drinks("Coke", 1.00);
+        drinks[2] = new Drinks("Green Tea", 2.70);
     }
     public double selectDrink(){
         Scanner sc = new Scanner(System.in);
         int drinkChoice;
         double drinkPrice = 0.0;
-        System.out.println("====== Vending Machine ====== \r\n"
-        + "|1. Buy Beer ($3.00) \t| \r\n"
-        + "|2. Buy Coke ($1.00) \t| \r\n"
-        + "|3. Buy Green Tea ($5.00) | \r\n"
-        + "|============================ \r\n"
-        + "Please enter selection: ");
+        System.out.println("====== Vending Machine ======");
+        for(int i=0; i < drinks.length; i++){
+            System.out.println("|" + (i+1) + "Buy" + drinks[i].getName()
+            + String.format("  %.2f  ", drinks[i].getCost()) + "  |"
+            );
+        }
+        System.out.println("|============================\n");
         do{
             drinkChoice = sc.nextInt();
         }while(drinkChoice<1 || drinkChoice>3);
 
-        switch(drinkChoice){
-            case 1:
-                drinkPrice = 3.00;
-                break;
-            case 2:
-                drinkPrice = 1.00;
-                break;
-            case 3:
-                drinkPrice = 5.00;
-                break;
-        }
+        drinkPrice = drinks[drinkChoice-1].getCost();
         return drinkPrice;
     }
     public double insertCoins(double drinkCost){
@@ -79,5 +77,15 @@ public class VendingMachine {
     public void printReceipt(){
         System.out.println("Please collect your drink \n"
         + "Thank you !!");
+    }
+    public void start(){
+        boolean end = false;
+        do {
+            double amountInserted;
+            drinkCost = selectDrink();
+            amountInserted = insertCoins(drinkCost);
+            checkChange(amountInserted, drinkCost);
+            printReceipt();
+        }while(!end);
     }
 }
