@@ -72,8 +72,15 @@ public class Plane{
                 index = i;
         }
 
+        outerloop:
         if (index == -1 || !seat[index].isOccupied())
         {
+            for (int j=0; j < seat.length; j++){
+                if (seat[j] != null && seat[j].getCustomerID() == cust_id){
+                    System.out.println("This Customer already has a seat!");
+                    break outerloop;
+                }
+            }
             PlaneSeat planeSeat = new PlaneSeat(seatId);
             planeSeat.assign(cust_id);
             seat[12 - numEmptySeat] = planeSeat;
@@ -86,10 +93,12 @@ public class Plane{
 
     public void unAssignSeat(int seatId)
     {
-        for (PlaneSeat planeSeat : seat) {
-            if (planeSeat != null && planeSeat.getSeatID() == seatId) {
-                planeSeat.unAssign();
+        for (int i = 0; i <seat.length; i++) {
+            if (seat[i] != null && seat[i].getSeatID() == seatId) {
+                seat[i].unAssign();
+                seat[i] = null;
                 System.out.println("Seat Unassigned!\n");
+                numEmptySeat++;
             }
         }
     }
