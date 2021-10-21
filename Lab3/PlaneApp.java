@@ -8,15 +8,16 @@ public class PlaneApp {
         Scanner scanner = new Scanner(System.in);
         int sel = 0;
         Plane plane = new Plane();
-
-        do {
-            System.out.print("(1) Show the number of empty seats\n" +
+        System.out.print("(1) Show the number of empty seats\n" +
                     "(2) Show the list of empty seats\n" +
                     "(3) Show the list of customers together with their seat numbers in the order of the seat numbers\n" +
                     "(4) Show the list of customers together with their seat numbers in the order of the customer ID\n" +
                     "(5) Assign a customer to a seat\n" +
                     "(6) Remove a seat assignment\n" +
-                    "(7) Quit\nChoose an option: ");
+                    "(7) Quit\nChoose an option: \n");
+
+        do {
+            System.out.println("Enter the number of your choice: ");
             sel = scanner.nextInt();
 
             switch(sel)
@@ -28,10 +29,10 @@ public class PlaneApp {
                     plane.showEmptySeats();
                     break;
                 case 3:
-                    plane.showAssignedSeats(true);
+                    plane.showAssignedSeat(true);
                     break;
                 case 4:
-                    plane.showAssignedSeats(false);
+                    plane.showAssignedSeat(false);
                     break;
                 case 5:
                     System.out.print("Assigning Seat ..\n Please enter SeatID: ");
