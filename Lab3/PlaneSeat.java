@@ -1,4 +1,4 @@
-package Lab3;
+package CZ2002.Lab3;
 
 public class PlaneSeat{
     private int seatId;

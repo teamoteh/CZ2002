@@ -1,4 +1,4 @@
-package Tutorial3.Qn2;
+package CZ2002.Tutorial3.Qn2;
 
 public class Cylinder extends Circle{
     protected double h;

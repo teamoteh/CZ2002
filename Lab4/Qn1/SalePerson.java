@@ -1,4 +1,4 @@
-package Lab4.Qn1;
+package CZ2002.Lab4.Qn1;
 
 public class SalePerson implements Comparable {
     private String firstName;

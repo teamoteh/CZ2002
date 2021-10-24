@@ -1,4 +1,4 @@
-package Tutorial3.Qn1;
+package CZ2002.Tutorial3.Qn1;
 
 import java.util.Scanner;
 
