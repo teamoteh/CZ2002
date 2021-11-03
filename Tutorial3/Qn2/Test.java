@@ -1,4 +1,4 @@
-package Tutorial3.Qn2;
+package CZ2002.Tutorial3.Qn2;
 
 public class Test {
     public static void main(String[] args) {

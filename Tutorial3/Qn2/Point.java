@@ -1,4 +1,4 @@
-package Tutorial3.Qn2;
+package CZ2002.Tutorial3.Qn2;
 
 public class Point {
     protected int x;
