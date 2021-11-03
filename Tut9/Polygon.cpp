@@ -80,7 +80,7 @@ class Triangle : public Polygon
             _type = POLY_TRIANG;
             cout << "constructing Triangle object " << _name << endl;
         }
-
+    
         float calArea(){
             return 0.5 * _width * _height;
         }
