@@ -1,94 +1,53 @@
+using namespace std;
+
+#include "Animal.h"
 #include <iostream>
 #include <string>
-using namespace std;
-enum COLOR
-{
-    Green,
-    Blue,
-    White,
-    Black,
-    Brown
-};
-class Animal
-{
-public:
-    Animal() : _name("unknown")
-    {
-        cout << "constructing Animal object " << _name << endl;
-    }
-    Animal(string n, COLOR c)
-    {
-        _name = n;
-        _color = c;
-        cout << "constructing Animal object " << _name << endl;
-        cout << "constructing Animal colour " << _color << endl;
-    }
-    ~Animal()
-    {
-        cout << "destructing Animal object " << _name << endl;
-    }
-    virtual void speak() const
-    {
-        cout << "Animal speaks " << endl;
-    }
-    virtual void move() = 0;
 
-private:
-    string _name;
-    COLOR _color;
+Animal::Animal() : _name("unknown"){
+    cout << "constructing Animal object " << _name << endl;
 };
 
-class Mammal : public Animal
-{
-    public:
-    
-    void eat()
-    {
-        cout << "Mammal eat" << endl;
-    }
-
-    Mammal(string n, COLOR c) : Animal(n, c)
-    {
-
-    }   
-    ~Mammal()
-    {
-
-    }
+Animal::Animal(string n, COLOR c) : _name(n), _color(c) {
+    cout << "constructing Animal object "<< _name << endl ; 
 };
 
-class Dog : public Mammal
-{
-    public:
-        Dog(string n, COLOR c, string o) : Mammal(n, c)
-        {
-            _owner = o;
-        }
-        ~Dog()
-        {
+Animal::~Animal() {
+    cout << "destructing Animal object "<< _name << endl ;
+}
 
-        }
+void Animal::speak() const {
+    cout << "Animal speaks "<< endl ;
+}
 
-        void speak()
-        {
-            cout << "Woof Woof!" << endl;
-        }
+string Animal::getName(){
+    return _name;
+}
 
-    private:
-        string _owner;
-};
-int main()
-{
-    Animal a("Shark", Blue);
-    a.speak();
+void Animal::setName(string name){
+    _name = name;
+}
 
-    Mammal m("Bear", Brown);
-    m.speak();
+COLOR Animal::getColor(){
+    return _color;
+}
 
-    Dog d("Schnauzer", Black, "Bernard");
-    d.speak();
+Mammal::Mammal() : Animal(){
+    cout << "constructing Mammal object " << Mammal::getName() << endl;
+}
 
-    cout << "Program exiting …. " << endl;
-    return 0;
+Mammal::Mammal(string name, COLOR color) : Animal(name, color) {
+    cout << "Constructing Mammal object " << Mammal::getName() << endl;
+}
 
+Mammal::~Mammal() {
+    cout << "destructing Mammal object " << Mammal::getName() << endl;
+}
+
+void Mammal::eat() const{
+    cout << "Mammal eat " << endl ;
+}
+
+void Mammal::move(){
+    cout << "Mammal moves" << endl;
 }
